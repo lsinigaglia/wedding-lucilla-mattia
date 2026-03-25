@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucilla & Mattia — 23 Maggio 2026</title>
+<link rel="icon" type="image/png" href="birds.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Italiana&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue-deep: #1B3FA0;
+  --blue-mid: #2952B8;
+  --blue-bright: #3366CC;
+  --blue-light: #6B8FD4;
+  --blue-pale: #B8CCE8;
+  --blue-wash: #DAE5F5;
+  --blue-hint: #EEF3FA;
+  --white: #FFFFFF;
+  --cream: #F8FAFD;
+  --text-on-blue: #FFFFFF;
+  --text-on-light: #1B3FA0;
+  --text-body: #2C3E6B;
+  --text-muted: #6B7DAA;
+  --gold: #D4B978;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--text-body);
+  background: var(--cream);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+
+/* ── Cyanotype texture (for info section) ── */
+.cyanotype-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.cyanotype-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 120% 30% at 0% 15%, rgba(255,255,255,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 20% at 100% 35%, rgba(255,255,255,0.14) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 25% at 10% 60%, rgba(255,255,255,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 20% at 90% 80%, rgba(255,255,255,0.12) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Hero Section ── */
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  padding: 0;
+  background: #1B3FA0;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* ── Section commons ── */
+section { padding: 6rem 2rem; position: relative; }
+
+.section-container { max-width: 780px; margin: 0 auto; }
+
+.section-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  text-align: center;
+  color: var(--blue-deep);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem auto 3.5rem;
+}
+
+.section-divider .line { width: 50px; height: 1px; background: var(--blue-pale); }
+.section-divider .diamond { width: 6px; height: 6px; border: 1px solid var(--blue-light); transform: rotate(45deg); }
+
+/* ── White section title (for blue bg sections) ── */
+.on-blue .section-label { color: rgba(255,255,255,0.6); }
+.on-blue .section-title { color: var(--white); }
+.on-blue .section-divider .line { background: rgba(255,255,255,0.25); }
+.on-blue .section-divider .diamond { border-color: rgba(255,255,255,0.4); }
+
+/* ── Programma / Timeline ── */
+.programma {
+  background: var(--cream);
+}
+
+.timeline { position: relative; padding: 1rem 0; }
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--blue-pale) 10%, var(--blue-pale) 90%, transparent);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-time {
+  flex: 0 0 calc(50% - 30px);
+  text-align: right;
+  padding-right: 2rem;
+  padding-top: 0.3rem;
+}
+
+.timeline-time span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--blue-deep);
+  letter-spacing: 0.05em;
+}
+
+.timeline-dot {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 16px;
+  height: 16px;
+  margin: 0.4rem 7px 0;
+  border-radius: 50%;
+  border: 2px solid var(--blue-mid);
+  background: var(--cream);
+  transition: all 0.3s;
+}
+
+.timeline-item:hover .timeline-dot {
+  background: var(--blue-mid);
+  transform: scale(1.2);
+}
+
+.timeline-content {
+  flex: 0 0 calc(50% - 30px);
+  padding-left: 2rem;
+}
+
+.timeline-content h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-body);
+  margin-bottom: 0.3rem;
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.timeline-content .map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.timeline-content .map-link:hover { border-bottom-color: var(--blue-deep); }
+.timeline-content .map-link svg { width: 14px; height: 14px; }
+
+/* ── Info Section (on blue) ── */
+.info {
+  background: linear-gradient(170deg, #1B3FA0 0%, #2250B5 40%, #1A3D9E 70%, #1B45A6 100%);
+  color: var(--white);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.info-block h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.info-block h3 .icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-block h3 .icon svg { width: 16px; height: 16px; color: rgba(255,255,255,0.8); }
+
+.info-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.2rem;
+  transition: all 0.3s;
+  backdrop-filter: blur(8px);
+}
+
+.info-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.info-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-card h4 svg { width: 18px; height: 18px; color: rgba(255,255,255,0.6); flex-shrink: 0; }
+
+.info-card p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+}
+
+.info-card a {
+  color: var(--white);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  transition: border-color 0.3s;
+}
+
+.info-card a:hover { border-bottom-color: var(--white); }
+
+.info-card .tip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255, 180, 100, 0.15);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: rgba(255, 220, 170, 0.95);
+}
+
+/* ── Hotel cards ── */
+.hotels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.hotel-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  display: block;
+}
+
+.hotel-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.hotel-card .hotel-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+
+.hotel-card .hotel-cta {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.hotel-card:hover .hotel-cta { color: rgba(255, 255, 255, 0.9); }
+.hotel-card .hotel-cta svg { width: 12px; height: 12px; transition: transform 0.3s; }
+.hotel-card:hover .hotel-cta svg { transform: translateX(3px); }
+
+/* ── Footer ── */
+footer {
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  background: var(--cream);
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: var(--blue-pale);
+}
+
+.footer-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--blue-deep);
+  letter-spacing: 0.05em;
+}
+
+.footer-names .e {
+  font-style: italic;
+  opacity: 0.6;
+  margin: 0 0.2em;
+}
+
+.footer-birds {
+  margin: 1.5rem 0;
+}
+
+.footer-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scaleX(0); }
+  to { opacity: 1; transform: scaleX(1); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── Mobile ── */
+@media (max-width: 700px) {
+  section { padding: 4rem 1.5rem; }
+
+  .timeline::before { left: 20px; }
+
+  .timeline-item {
+    flex-direction: column;
+    padding-left: 50px;
+  }
+
+  .timeline-time { flex: none; text-align: left; padding-right: 0; padding-top: 0; margin-bottom: 0.2rem; }
+
+  .timeline-dot { position: absolute; left: -38px; top: 0.4rem; margin: 0; }
+
+  .timeline-content { flex: none; padding-left: 0; }
+
+  .hotels-grid { grid-template-columns: 1fr; }
+
+  .hero { min-height: auto; }
+}
+
+@media (max-width: 400px) {
+  .hero h1 { font-size: 2.6rem; }
+  .section-title { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <picture>
+    <source media="(min-width: 701px)" srcset="hero-desktop.jpg">
+    <img class="hero-img" src="hero-mobile.jpg" alt="Lucilla e Mattia — 23 maggio 2026, Monte Argentario">
+  </picture>
+</section>
+
+<!-- Programma -->
+<section class="programma" id="programma">
+  <div class="section-container">
+    <p class="section-label reveal">La Giornata</p>
+    <h2 class="section-title reveal">Programma</h2>
+    <div class="section-divider reveal">
+      <div class="line"></div>
+      <div class="diamond"></div>
+      <div class="line"></div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-time"><span>11:30</span></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Cerimonia</h3>
+          <p>Comune di Monte Argentario<br>Piazzale dei Rioni 8, Porto Santo Stefano</p>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Comune+di+Monte+Argentario+Piazzale+dei+Rioni+8+Porto+Santo+Stefano" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Apri in Maps
+          </a>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal reveal-delay-1">
+        <div class="timeline-time"><span></span></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Brindisi</h3>
+          <p>In Piazzale dei Rioni, davanti al Comune</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal reveal-delay-2">
+        <div class="timeline-time"><span></span></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Navette</h3>
+          <p>Trasferimento dal Comune a Casa</p>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal reveal-delay-3">
+        <div class="timeline-time"><span>13:00</span></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Pranzo</h3>
+          <p>Casa, Via della Grotta 108<br>Porto Santo Stefano</p>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Via+della+Grotta+108+Porto+Santo+Stefano" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Apri in Maps
+          </a>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal reveal-delay-4">
+        <div class="timeline-time"><span>Sera</span></div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Musica in Giardino</h3>
+          <p>Festeggiamo insieme fino a sera</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Info (on blue background) -->
+<section class="info cyanotype-bg on-blue" id="info">
+  <div class="section-container">
+    <p class="section-label reveal">Tutto quello che serve</p>
+    <h2 class="section-title reveal">Informazioni Utili</h2>
+    <div class="section-divider reveal">
+      <div class="line"></div>
+      <div class="diamond"></div>
+      <div class="line"></div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-block reveal">
+        <h3>
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </span>
+          Come Arrivare
+        </h3>
+
+        <div class="info-card">
+          <h4>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="16" r="1"/></svg>
+            In Treno
+          </h4>
+          <p>Scendete alla stazione di <strong>Orbetello/Monte Argentario</strong>. Da lì, prendete il bus <strong>001 di Autolinee Toscane</strong> fino alla fermata <em>Porto Santo Stefano Lungomare Navigatori</em>, a soli 350m dal Comune. Durata circa 25 minuti.</p>
+          <p style="margin-top: 0.5rem;">
+            <a href="https://www.at-bus.it/it" target="_blank" rel="noopener">Consulta gli orari dei bus &rarr;</a>
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h4>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17m-2 0a2 2 0 1 0 4 0 2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0 2 2 0 1 0 -4 0"/><path d="M5 17H3v-6l2-5h9l4 5h1a2 2 0 0 1 2 2v4h-2"/><path d="M9 17h6"/><path d="M14 6l-4 5"/></svg>
+            In Auto
+          </h4>
+          <p>Parcheggio consigliato con ingresso in <strong>Via Martiri d'Ungheria</strong> — il più vicino al Comune.</p>
+          <p style="margin-top: 0.4rem;">Alternative: Piazzale Sant'Andrea, Parcheggio Facchinetti o Fanciulli. Il Comune si raggiunge poi a piedi con una breve passeggiata.</p>
+          <div class="tip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Evitate le strisce blu: costi elevati e multe frequenti!
+          </div>
+        </div>
+      </div>
+
+      <div class="info-block reveal">
+        <h3>
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </span>
+          Dove Alloggiare
+        </h3>
+
+        <div class="hotels-grid">
+          <a class="hotel-card" href="https://www.hotelweekend.it/" target="_blank" rel="noopener">
+            <div class="hotel-name">Hotel Week-End</div>
+            <div class="hotel-cta">Prenota <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </a>
+          <a class="hotel-card" href="https://www.bbargentariohotel.it/" target="_blank" rel="noopener">
+            <div class="hotel-name">Bike&amp;Boat Argentario</div>
+            <div class="hotel-cta">Prenota <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </a>
+          <a class="hotel-card" href="https://www.hotelcaletta.it/" target="_blank" rel="noopener">
+            <div class="hotel-name">Hotel La Caletta</div>
+            <div class="hotel-cta">Prenota <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </a>
+          <a class="hotel-card" href="https://www.hotelfilipposecondo.it/" target="_blank" rel="noopener">
+            <div class="hotel-name">Hotel Filippo II</div>
+            <div class="hotel-cta">Prenota <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+  <div class="footer-names">Lucilla <span class="e">e</span> Mattia</div>
+  <div class="footer-birds">
+    <img src="birds.png" alt="Uccellini" style="width: 120px; height: auto;">
+  </div>
+  <p class="footer-date">23 Maggio 2026 &middot; Monte Argentario</p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
